@@ -1,0 +1,191 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Portfolio Design System - Black & White Theme */
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.75rem;
+
+    /* Portfolio Specific Colors */
+    --hero-gradient-start: 0 0% 0%;
+    --hero-gradient-end: 0 0% 20%;
+    --section-background: 0 0% 98%;
+    --card-hover: 0 0% 96%;
+    --text-primary: 0 0% 9%;
+    --text-secondary: 0 0% 45%;
+    --accent-color: 142 76% 36%;
+    --accent-hover: 142 76% 30%;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+
+    /* Portfolio Specific Dark Colors */
+    --hero-gradient-start: 0 0% 0%;
+    --hero-gradient-end: 0 0% 8%;
+    --section-background: 0 0% 6%;
+    --card-hover: 0 0% 10%;
+    --text-primary: 0 0% 98%;
+    --text-secondary: 0 0% 65%;
+    --accent-color: 142 76% 45%;
+    --accent-hover: 142 76% 40%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Professional Button Variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 px-8 py-3 rounded-lg font-medium;
+  }
+
+  .btn-secondary {
+    @apply border border-border bg-transparent hover:bg-accent transition-all duration-300 px-8 py-3 rounded-lg font-medium;
+  }
+
+  .btn-accent {
+    @apply bg-green-600 text-white hover:bg-green-700 transition-all duration-300 px-6 py-2 rounded-lg font-medium;
+  }
+
+  /* Card Variants */
+  .card-elevated {
+    @apply bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .card-project {
+    @apply bg-card border border-border rounded-xl p-6 hover:shadow-lg hover:border-accent-foreground/20 transition-all duration-300;
+  }
+
+  /* Typography Variants */
+  .heading-hero {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground;
+  }
+
+  .heading-section {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+  }
+
+  .text-hero-subtitle {
+    @apply text-xl md:text-2xl text-muted-foreground font-light;
+  }
+
+  /* Section Layouts */
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .section-alternate {
+    @apply bg-muted/30;
+  }
+
+  /* Professional Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out forwards;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-primary/10;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
